@@ -10,7 +10,7 @@ var breakCode = false
 var rifeiLink = ""
 var ticketsAmount = ""
 var winningTickets = []
-var cellphoneNumber
+var cellphoneNumber = ''
 
 function askQuestions() {
     input.question('Informe o link do Rifei: ', (answer) => {
@@ -84,6 +84,13 @@ async function letsGo() {
             }
 
             if (breakCode) break
+
+            await page.click("#__next > main > div.sc-772e6754-11.jhevqm > div > button")
+            await timeout(2000)
+            await page.click("#__next > div.sc-912e3955-0.fyGHVY > div > div.sc-b992e925-5.gmRYUp > form > fieldset > div.sc-8694035b-3.jLDXSB > div > input", cellphoneNumber)
+            await timeout(2000)
+            await page.click("#__next > div.sc-912e3955-0.fyGHVY > div > div.sc-b992e925-5.gmRYUp > form > div > button")
+            await timeout(2000)
 
         } catch (error) {
             console.log('Erro, reiniciando loop', error)
